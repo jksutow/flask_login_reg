@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login or Register</title>
+  </head>
+  <body>
+    {% with error_messages = get_flashed_messages() %}
+      {% if error_messages %}
+        {% for message in error_messages %}
+          <p>
+            {{ message }}
+          </p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <h3>Register below</h3>
+
+    <form class="register" action="/users" method="post">
+      <label for="first_name">First Name:</label>
+      <input type="text" name="first_name">
+      <label for="last_name">Last Name:</label>
+      <input type="text" name="last_name">
+      <label for="email">Email:</label>
+      <input type="text" name="email">
+      <label for="password">Password:</label>
+      <input type="password" name="password">
+      <label for="pw_confirm">Confirm Password:</label>
+      <input type="password" name="pw_confirm">
+      <input type="submit" name="register" value="Register">
+    </form>
+
+    <h3>Login</h3>
+    <form action="/success" method="post">
+      Email:<input type="text" name="email">
+		  Password:<input type="text" name="password">
+		  <input type="submit" name="submit">
+    </form>
+
+
+
+  </body>
+  <style>
+    input{
+      display: block;
+    }
+  </style>
+</html>
